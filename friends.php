@@ -10,5 +10,13 @@
             xfbml  : true  // parse XFBML
         });
     </script>
+
     lol
+
+    <script>
+        FB.api('/me', function(response) {
+            alert(response.name);
+        });
+    </script>
+
 </html>
