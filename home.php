@@ -7,7 +7,7 @@ include("fbmain.php");
 $friends = $facebook->api('/me/friends');
 //print_r($friends);
 echo count($friends[data]);
-print_r($friends);
+print_r($friends['data'][0]['id']);
 
 for ($i = 0; $i <= 5 /* count($friends[data]) */ - 1; $i++) {
     //echo $friends[data][$i][id];
