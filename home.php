@@ -8,9 +8,9 @@ $friends = $facebook->api('/me/friends');
 
 print_r($friends);
 //print_r($friends);
+echo '<pre>';
 echo count($friends[data]);
 
-echo '<pre>';
 print_r($friends['data'][0]['id']);
 
 
