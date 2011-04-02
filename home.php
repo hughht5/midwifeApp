@@ -5,6 +5,8 @@ include("fbmain.php");
 
 
 $friends = $facebook->api('/me/friends');
+
+echo $friends;
 //print_r($friends);
 echo count($friends[data]);
 
