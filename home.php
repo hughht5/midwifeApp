@@ -16,7 +16,7 @@ for ($i = 0; $i <= count($friends[data]) - 1; $i++) {
     //echo $friends[data][$i][id];
 
     $x = $facebook->api('/' . $friends['data'][$i]['id']);
-    print_r($x); //['gender'];
+    echo $x['gender'];
 }
 
 //echo '</pre>';
