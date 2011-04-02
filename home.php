@@ -1,7 +1,8 @@
 <?php
 
-include("fbmain.php");
+include("fbconfig.php");
 
+$facebook = new Facebook($api, $secret);
 
 $user_id = $facebook->require_login();
 
