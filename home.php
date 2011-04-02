@@ -13,7 +13,7 @@ $numFemale = 0;
 //echo '<pre>';
 //print_r($friends['data'][0]['id']);
 
-for ($i = 0; $i <= count($friends[data]) - 1; $i++) {
+for ($i = 0; $i <=5/* count($friends[data])*/ - 1; $i++) {
     //echo $friends[data][$i][id];
 
     $x = $facebook->api('/' . $friends['data'][$i]['id']);
