@@ -1,14 +1,9 @@
 <?php
 
 include("fbmain.php");
-
-
-
 $friends = $facebook->api('/me/friends');
 //print_r($friends);
 $numFriends = count($friends[data]);
-
-
 $numFemale = 0;
 
 //echo '<pre>';
