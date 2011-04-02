@@ -22,5 +22,7 @@ for ($i = 0; $i <=5/* count($friends[data])*/ - 1; $i++) {
     }
 }
 
+echo $facebook->api('/me');
+
 echo "you have ".$numFriends." friends of which ".$numFemale." are female";
 ?>
