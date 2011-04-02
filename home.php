@@ -12,11 +12,11 @@ echo count($friends[data]);
 //print_r($friends['data'][0]['id']);
 
 
-for ($i = 0; $i <= 100 /* count($friends[data]) */ - 1; $i++) {
+for ($i = 0; $i <= count($friends[data]) - 1; $i++) {
     //echo $friends[data][$i][id];
 
     $x = $facebook->api('/' . $friends['data'][$i]['id']);
-    print_r($x);//['gender'];
+    print_r($x); //['gender'];
 }
 
 //echo '</pre>';
