@@ -5,20 +5,18 @@ include("fbmain.php");
 
 
 $friends = $facebook->api('/me/friends');
-
-print_r($friends);
 //print_r($friends);
-echo '<pre>';
 echo count($friends[data]);
 
+echo '<pre>';
 print_r($friends['data'][0]['id']);
 
 
 for ($i = 0; $i <= 5 /* count($friends[data]) */ - 1; $i++) {
     //echo $friends[data][$i][id];
 
-    $x = $facebook->api('/' . $friends['gender']);
-    print_r($x);
+    $x = $facebook->api('/' . $friends['data'][$i]['id']);
+    $x['gender'];
 }
 
 echo '</pre>';
