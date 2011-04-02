@@ -1,5 +1,6 @@
 <?php
 	include("facebook/fbmain.php");
+	include("facebook/fbconfig.php");
 	$auth_url = "http://www.facebook.com/dialog/oauth?client_id="
                 . $app_id . "&redirect_uri=" . urlencode($canvas_page) . "&scope=friends_location,user_location,publish_stream";
     $signed_request = $_REQUEST["signed_request"];
