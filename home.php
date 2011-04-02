@@ -1,4 +1,4 @@
 <?php
-
-echo "lol"
+$friends = $facebook->api('/me/friends');
+echo "$friends";
 ?>
