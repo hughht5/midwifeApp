@@ -1,36 +1,29 @@
 <?php
 
+include("fbmain.php");
 
 
-require_once 'facebook.php';
 
-$appapikey = 'fe16e8696c59ccfad53c70a51df4a079';
-$appsecret = 'aee13ae43f42d5e24c23ed93c6d8d271';
+$friends = $facebook->api('/me/friends');
+//print_r($friends);
+$numFriends = count($friends[data]);
 
-$facebook = new Facebook($appapikey, $appsecret);
 
-$user_id = $facebook->require_login();
+$numFemale = 0;
 
-$friends = $facebook->api_client->friends_get();
+//echo '<pre>';
+//print_r($friends['data'][0]['id']);
+/*
+for ($i = 0; $i <= count($friends[data]) - 1; $i++) {
+    //echo $friends[data][$i][id];
 
-echo "<p>Hello <fb:name uid=\"$user_id\" useyou=\"false\" linked=\"false\" firstnameonly=\"true\"></fb:name>, you have ".count($friends)." friends";
+    $x = $facebook->api('/' . $friends['data'][$i]['id']);
+    if ($x['gender'] == "female") {
+        $numFemale++;
+    }
+}*/
 
-foreach($friends as $friend){
-     $infos.=$friend.",";
-}
+//echo $facebook->api('/me')['gender''];
 
-$infos = substr($infos,0,strlen($infos)-1);
-
-$gender=$facebook->api_client->users_getInfo($infos,'sex');
-
-$gender_array = array();
-
-foreach($gender as $gendervalue){
-     $gender_array[$gendervalue[sex]]++;
-}
-
-$male = round($gender_array[male]*100/($gender_array[male]+$gender_array[female]),2);
-$female = 100-$male;
-
-echo "<ul><li>Males: $male%</li><li>Females: $female%</li></ul>";
+echo "you have ".$numFriends." friends of which ".($numFriends/2)." are female";
 ?>
