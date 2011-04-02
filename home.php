@@ -1,8 +1,13 @@
 <?php
 
-include("fbconfig.php");
 
-$facebook = new Facebook($api, $secret);
+
+require_once 'facebook.php';
+
+$appapikey = 'fe16e8696c59ccfad53c70a51df4a079';
+$appsecret = 'aee13ae43f42d5e24c23ed93c6d8d271';
+
+$facebook = new Facebook($appapikey, $appsecret);
 
 $user_id = $facebook->require_login();
 
