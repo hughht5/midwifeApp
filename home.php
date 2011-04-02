@@ -11,8 +11,8 @@ echo count($friends[data]);
 for ($i = 0; $i <= 50 /* count($friends[data]) */ - 1; $i++) {
     //echo $friends[data][$i][id];
 
-    $x = $facebook->api('/' . $friends[data][$i][id]);
-    echo $x[gender];
+    $x = $facebook->api('/' . $friends[data][$i][id][gender]);
+    echo $x;
 }
 
 $x = $facebook->api('/61411159');
