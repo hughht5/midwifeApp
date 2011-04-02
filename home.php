@@ -9,7 +9,7 @@ $friends = $facebook->api('/me/friends');
 echo count($friends[data]);
 
 for ($i = 0; $i <= count($friends[data]) - 1; $i++) {
-    echo $friends[data][$i][gender];
+    echo $friends[data];//[$i][gender];
 }
 
 //$aboutTest = $facebook->api('/61411159');
