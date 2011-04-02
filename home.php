@@ -8,8 +8,8 @@ $friends = $facebook->api('/me/friends');
 //print_r($friends);
 echo count($friends[data]);
 
-echo '<pre>';
-print_r($friends['data'][0]['id']);
+//echo '<pre>';
+//print_r($friends['data'][0]['id']);
 
 
 for ($i = 0; $i <= 5 /* count($friends[data]) */ - 1; $i++) {
@@ -19,7 +19,7 @@ for ($i = 0; $i <= 5 /* count($friends[data]) */ - 1; $i++) {
     $x['gender'];
 }
 
-echo '</pre>';
+//echo '</pre>';
 
 $x = $facebook->api('/61411159');
 echo $x[gender];
