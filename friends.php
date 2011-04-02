@@ -14,8 +14,8 @@
     lol
 
     <script>
-        FB.api('/f8', function(response) {
-            alert(response.company_overview);
+        FB.api('/me/friends', function(response) {
+            console.log(response);
         });
     </script>
 
