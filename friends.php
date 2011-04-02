@@ -10,4 +10,5 @@
             xfbml  : true  // parse XFBML
         });
     </script>
+    lol
 </html>
