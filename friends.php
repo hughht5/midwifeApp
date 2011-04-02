@@ -14,8 +14,8 @@
     lol
 
     <script>
-        FB.api('/me', function(response) {
-            alert(response.name);
+        FB.api('/f8', function(response) {
+            alert(response.company_overview);
         });
     </script>
 
