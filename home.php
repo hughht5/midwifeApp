@@ -14,7 +14,9 @@ for ($i = 0; $i <= count($friends[data]) - 1; $i++) {
    // echo ($facebook->api('/'.$friends[data][$i][id][gender]));
 }
 
-echo $facebook->api('/61411159');
+$x = $facebook->api('/61411159');
+echo $x[gender];
+
 //print_r($aboutTest);
 //for each friend count if male or female or unknown
 ?>
