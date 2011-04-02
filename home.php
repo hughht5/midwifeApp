@@ -6,6 +6,7 @@ include("fbmain.php");
 
 $friends = $facebook->api('/me/friends');
 //print_r($friends);
+echo count($friends[data]);
 
 for ($i = 0; $i <= count($friends[data]) - 1; $i++) {
     echo $friends[data][$i][gender];
