@@ -75,13 +75,13 @@
 				//listen to same event but with diff param
 				google.visualization.events.addListener(visualization, 'select', function() {
 				
-					console.log(visualization.getSelection());
+					console.log(visualization.getSelection()[0].row);
 				
 					console.log(data);
 					console.log(data.D);
 					console.log(data.D[30]);
-					console.log(data.D[visualization.getSelection().row].c);
-					alert(data.D[visualization.getSelection().row].c[0].v);
+					console.log(data.D[visualization.getSelection()[0].row].c);
+					alert(data.D[visualization.getSelection()[0].row].c[0].v);
 					
 				
 					//TODO query for countries rates					
