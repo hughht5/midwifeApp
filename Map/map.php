@@ -77,7 +77,7 @@
 						$("#visualization2").css('z-index', '0');
 					});		
 				});
-				//listen to same event but with diff param
+				//listen to same event but with diff param which is after
 				google.visualization.events.addListener(visualization, 'select', function() {
 					//query spreadsheet for stats
 					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
@@ -97,7 +97,6 @@
 						}						
 					});				
 				
-					//zoom out button
 					//select side countries
 					//
 				
