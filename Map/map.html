@@ -109,7 +109,7 @@
                         var x = 0;
 
                         $('#animation img').each(function(index) {
-                            if(x>fadeFriendGap) {
+                            if(x<fadeFriendGap) {
                                 $(this).fadeTo(3000, 0.0);
                                 x=0;
                             }x++;
