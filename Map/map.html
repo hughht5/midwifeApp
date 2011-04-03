@@ -29,7 +29,6 @@
 						friend_count++;
 						friend_ids[json] = [response[json].pic_square, response[json].name]
 					});
-					console.log(friend_ids);
 				});				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
@@ -100,10 +99,9 @@
 					});
 					//place pics inside
 					$("#animation").css('z-index', '3');
-					var grid = [48][48];
-					
 					$.each(friend_ids, function(iterator) {
-						$("#animation").append("<img style='opacity:0.9;filter:alpha(opacity=90)' width='24' height='24' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/>");
+					
+						$("#animation").append("<div style='width:32px;height:32px;'><img style='opacity:0.9;filter:alpha(opacity=90)' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
 						if(iterator == 195) return false;
 					});
 
