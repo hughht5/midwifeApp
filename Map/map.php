@@ -76,7 +76,7 @@
 				google.visualization.events.addListener(visualization, 'select', function() {
 				
 				
-					console.log(visualization.getSelected());
+					console.log(visualization.getSelection());
 					
 				
 					//TODO query for countries rates					
