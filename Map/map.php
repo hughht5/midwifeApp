@@ -4,7 +4,8 @@
 		<script type='text/javascript'>
 			google.load("jquery", "1.5.2");
 			google.load('visualization', '1', {packages:['geomap']});
-			google.setOnLoadCallback(drawVisualization);			
+			google.setOnLoadCallback(drawVisualization);	
+			var friend_count = 0;
 			function drawVisualization() {
 				//auth with facebook
 				FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
@@ -18,7 +19,6 @@
 					}
 				});
 				//get friends list
-				var friend_count = 0;
 				FB.api({
 					method: 'fql.query',
 					query: 'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
@@ -26,7 +26,6 @@
 					$.each(response, function(json) {
 						friend_count++;
 					});
-					alert(friend_count);
 				});				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
