@@ -70,8 +70,7 @@
 					});
 					visualization2.draw(data, options);					
 					//TODO get amount of friends
-					var friends = friend_count;					
-					
+					alert(friend_count);
 					
 					
 					//TODO find out boundaries in which to draw					
