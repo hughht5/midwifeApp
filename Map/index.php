@@ -1,3 +1,8 @@
+<?php
+	 header('Location: https://www.facebook.com/dialog/oauth?
+     client_id=YOUR_APP_ID&redirect_uri=YOUR_URL&scope=email,read_stream&
+     response_type=token') ;
+?>
 <html>
 	<head>
 		<script type='text/javascript' src='https://www.google.com/jsapi'></script>
@@ -9,6 +14,9 @@
 				//auth with facebook
 				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079'});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
+				
+				
+				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
 				query.send(handleQueryResponse);
@@ -51,9 +59,10 @@
 					});
 					visualization2.draw(data, options);					
 					//TODO get amount of friends
+					//var friends = 100;					
 					
 					
-					var friends = 100;					
+					
 					//TODO find out boundaries in which to draw					
 					
 					//TODO place stick men inside
