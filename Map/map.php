@@ -78,10 +78,9 @@
 					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
 					//var spreadsheet_url = 'https://spreadsheets.google.com/ccc';								
 					$.ajax({
-						url: 'https://spreadsheets.google.com/feeds/cells/0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc/Sheet1/public/full',
+						url: 'https://spreadsheets.google.com/feeds/cells/0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc/1/public/full',
 						type: 'GET',
 						dataType: 'xml',
-						//data: 'key=0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc&hl=en_GB',
 						success: function(msg) {
 							alert(msg);
 						}						
