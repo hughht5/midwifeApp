@@ -83,8 +83,8 @@
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
 							//console.log(msg);
-							var mummyDeathsPer = msg.feed.entry[0].gsx$maternaldeathsper100000births;
-							var babyDeathsPer = msg.feed.entry[0].gsx$neonataldeaths;
+							var mummyDeathsPer = msg.feed.entry[0].gsx$maternaldeathsper100000births.$t;
+							var babyDeathsPer = msg.feed.entry[0].gsx$neonataldeaths.$t;
 							mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
 							babyDeaths = (babyDeathsPer / 1000) * friend_count;
 						}						
