@@ -84,11 +84,11 @@
 				var regexS = "[\\?&]"+name+"=([^&#]*)";
 				var regex = new RegExp( regexS );
 				alert(window.top.location);
-				var results = regex.exec(top.location.href);
+				/*var results = regex.exec(top.location.href);
 				if( results == null )
 					return "";
 				else
-				return results[1];
+				return results[1];*/
 			}
     </script>
   </head>
