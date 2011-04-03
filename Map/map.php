@@ -10,7 +10,16 @@
 				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079'});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
 				
+				console.log(arguments);
 				
+				/*$.ajax({
+					url: 'https://graph.facebook.com/me?access_token=',
+					type: 'GET',
+					dataType: 'json',
+					success: function(msg) {
+						
+					}					
+				});*/
 				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
