@@ -18,26 +18,16 @@
 					}
 				});
 				//get friends list
-				/*$.ajax({
-					type: "GET",
-					url: "https://graph.facebook.com/me",
-					data: 'access_token=' + access_token,
-					success: function(msg){
-						alert( "Data Saved: " + msg );
-					}
-				});*/
-
+				var friend_count = 0;
 				FB.api({
 					method: 'fql.query',
 					query: 'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
 				}, function(response) {
 					$.each(response, function(json) {
-						console.log(response[json].id);			
+						friend_count++;
 					});
-				});
-
-
-				
+					alert(friend_count);
+				});				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
 				query.send(handleQueryResponse);
@@ -80,7 +70,7 @@
 					});
 					visualization2.draw(data, options);					
 					//TODO get amount of friends
-					//var friends = 100;					
+					var friends = friend_count;					
 					
 					
 					
