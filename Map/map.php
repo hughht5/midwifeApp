@@ -95,8 +95,8 @@
 						}						
 					});
 					
-					console.log(mummyDeaths);
-					console.log(babyDeaths);
+					alert(mummyDeaths);
+					alert(babyDeaths);
 					
 					
 					
