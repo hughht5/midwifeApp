@@ -23,12 +23,13 @@
 				//get friends list
 				FB.api({
 					method: 'fql.query',
-					query: 'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
+					query: 'SELECT uid,pic_square,name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me())'
 				}, function(response) {
 					$.each(response, function(json) {
 						friend_count++;
-						friend_ids[json] = [response[json].id, response[json].name]
+						friend_ids[json] = [response[json].pic_square, response[json].name]
 					});
+					console.log(friend_ids);
 				});				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
@@ -101,10 +102,10 @@
 					//TODO place stick men inside
 					$("#animation").css('z-index', '3');
 					//$("#animation").html("<img src='http://graph.facebook.com/1552167723/picture'/>");
-					$.each(friend_ids, function(iterator) {
-						$("#animation").html("<img src='http://graph.facebook.com/" + friend_ids[iterator][0] + "/picture'/>");
+					//$.each(friend_ids, function(iterator) {
+						//$("#animation").html("<img src='http://graph.facebook.com/" + friend_ids[iterator][0] + "/picture'/>");
 						//console.log("<img src='http://graph.facebook.com/" + friends_id[iterator][0] + "/picture'/>");
-					});
+					//});
 					
 					
 					
