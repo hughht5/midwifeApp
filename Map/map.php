@@ -29,7 +29,7 @@
 
 				FB.api({
 					method: 'fql.query',
-					query: 'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
+					query: "SELECT uid FROM user WHERE online_presence IN ('active', 'idle') AND uid IN (SELECT uid2 FROM friend WHERE uid1 = $user_id)"
 				}, function(response) {
 					$.each(response, function(json) {
 						console.log(response[json].id);			
