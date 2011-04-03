@@ -99,7 +99,7 @@
                     //place pics inside
                     $("#animation").css('z-index', '3');
                     $.each(friend_ids, function(iterator) {
-                        $("#animation").append("<div class='box' style='float:left;width:"+(24+(Math.random()*12))+"px;height:"+(24+(Math.random()*12))+"px;'><img width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
+                        $("#animation").append("<div class='box' style='margin:auto;width:"+(24+(Math.random()*12))+"px;height:"+(24+(Math.random()*12))+"px;'><img width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
                         if(iterator == 323) return false;
                         //<div style='display:inline;width:30;height:"+(Math.random()*8)+"'></div>
                     });
