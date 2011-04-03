@@ -56,7 +56,7 @@
 				//click event
 				google.visualization.events.addListener(visualization, 'regionClick', function(region) {
 				
-					alert("region");
+					
 				
 					//change zoomed region to region selected
 					options['region'] = region.region;
@@ -73,9 +73,11 @@
 					visualization2.draw(data, options);				
 				});
 				//listen to same event but with diff param
-				google.visualization.events.addListener(visualization, 'select', function() {
+				google.visualization.events.addListener(visualization, 'select', function(region) {
 				
-					alert("select");
+				
+					console.log(region);
+					
 				
 					//TODO query for countries rates					
 				
