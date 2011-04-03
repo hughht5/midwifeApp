@@ -1,8 +1,3 @@
-<?php
-	 header('Location: https://www.facebook.com/dialog/oauth?
-     client_id=215359871811504&redirect_uri=http://www.mdganalysis.org/mashup/midwifeApp/Map/&scope=email,read_stream&
-     response_type=token') ;
-?>
 <html>
 	<head>
 		<script type='text/javascript' src='https://www.google.com/jsapi'></script>
@@ -77,6 +72,30 @@
     </script>
   </head>
   <body>
+    <script>
+		var appId = "215359871811504";
+        if(window.location.hash.length == 0)
+        {
+            url = "https://www.facebook.com/dialog/oauth?client_id=" + 
+                     appId  + "&redirect_uri=" + window.location +
+                     "&response_type=token";
+            window.open(url);
+
+        } else {
+            accessToken = window.location.hash.substring(1);
+            graphUrl = "https://graph.facebook.com/me?" + accessToken +
+                        "&callback=displayUser"
+
+            //use JSON-P to call the graph
+            var script = document.createElement("script");
+            script.src = graphUrl;
+            document.body.appendChild(script);  
+        }
+        function displayUser(user) {
+            userName.innerText = user.name;
+        }
+        </script>
+    <p id="userName"></p>
 	<div id="fb-root"></div>
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<div id="doyouagree" style="position:absolute;z-index:4"></div>
