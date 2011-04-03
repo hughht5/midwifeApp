@@ -76,7 +76,10 @@
 				google.visualization.events.addListener(visualization, 'select', function() {
 				
 				
-					
+					console.log(data);
+					console.log(data.D);
+					console.log(data.D[visualization.getSelection().row]);
+					console.log(data.D[visualization.getSelection().row].c);
 					alert(data.D[visualization.getSelection().row].c[0].v);
 					
 				
