@@ -73,7 +73,7 @@
 					visualization2.draw(data, options);				
 				});
 				//listen to same event but with diff param
-				google.visualization.events.addListener(visualization, 'select', function(region) {
+				google.visualization.events.addListener(visualization, 'select', function() {
 				
 				
 					console.log(visualization.getSelected());
