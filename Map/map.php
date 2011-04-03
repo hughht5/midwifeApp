@@ -45,7 +45,6 @@
 				options['dataMode'] = 'regions';
 				options['width'] = 725;
 				options['height'] = 600;
-				options['showZoomOut'] = true;
 				options['colors'] = [0x00FF00, 0x0];
 				google.visualization.events.addListener(visualization, 'drawingDone', function(region) {
 					setTimeout(function(){
@@ -69,10 +68,10 @@
 							$("#help").html('');
 						}, 2000);
 					});
+					options['showZoomOut'] = true;
 					visualization2.draw(data, options);
 					//zoom out handler
 					google.visualization.events.addListener(visualization2, 'zoomOut', function() {
-						alert("fuck");
 						$("#visualization").css('z-index', '1');
 						$("#visualization2").css('z-index', '0');
 					});		
