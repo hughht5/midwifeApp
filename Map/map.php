@@ -85,13 +85,12 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							babyDeaths = msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths;
-							mummyDeaths = msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths;
+							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths);
+							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths);
 						}						
 					});
 					
-					console.log(babyDeaths);
-					console.log(mummyDeaths);
+				
 					
 				
 					//TODO place stick men inside
