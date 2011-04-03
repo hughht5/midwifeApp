@@ -3,7 +3,7 @@
   </head>
   <body>  
     <script>
-		top.location.href="https://www.facebook.com/dialog/oauth?client_id=215359871811504&redirect_uri=http://apps.facebook.com/midwife/map.php&response_type=token";
+		top.location.href="https://www.facebook.com/dialog/oauth?client_id=215359871811504&redirect_uri=http://apps.facebook.com/stateoftheworld/map.php&response_type=token";
 	</script>
   </body>
 </html>
