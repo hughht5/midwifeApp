@@ -32,12 +32,7 @@
 				query.send(handleQueryResponse);
 			}
 			function handleQueryResponse(response) {
-				//check for error
-				if (response.isError()) {
-					alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-					return;
-				}
-				//draw
+				//draw world map
 				var data = response.getDataTable();
 				visualization = new google.visualization.GeoMap(document.getElementById('visualization'));
 				var visualization2; //built later
@@ -54,11 +49,10 @@
 					}, 2000);					
 				});
 				visualization.draw(data, options);				
-				//click event
+				//render zoomed in region above
 				google.visualization.events.addListener(visualization, 'regionClick', function(region) {				
-					//change zoomed region to region selected
+					//draw zoomed in
 					options['region'] = region.region;
-					//draw to a second buffer and flip when drawing is done
 					visualization2 = new google.visualization.GeoMap(document.getElementById('visualization2'));					
 					google.visualization.events.addListener(visualization2,'drawingDone', function(){
 						$("#help").html('<h1>Loading...</h1>');
@@ -81,7 +75,7 @@
 						visualization2.draw(data, options);
 					});					
 				});
-				//listen to same event but with diff param which is after
+				//do the animation
 				google.visualization.events.addListener(visualization, 'select', function() {
 					//query spreadsheet for stats
 					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
@@ -100,10 +94,7 @@
 							babyDeaths = (babyDeathsPer / 1000) * friend_count;
 						}						
 					});				
-				
-					//select side countries
-					//
-				
+
 					//TODO place stick men inside
 					//$("#animation").html('animation');
 					
@@ -121,7 +112,7 @@
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<div id="doyouagree" style="position:absolute;z-index:4"></div>
     <div id="animation" style="position:absolute;z-index:3"></div>
-	<div id="help" style="position:absolute;z-index:2;height:800;"><h1>Loading Map...</h1></div>
+	<div id="help" style="position:absolute;z-index:2;height:800;margin-top:20"><h1>Loading Map...</h1></div>
 	<div id="visualization" style="position:absolute;z-index:1"></div>
 	<div id="visualization2" style="position:absolute;z-index:0"></div>	
   </body>
