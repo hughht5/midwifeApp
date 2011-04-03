@@ -23,12 +23,12 @@
 				//get friends list
 				FB.api({
 					method: 'fql.query',
-					query: 'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
+					query: 'SELECT id, name FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
 				}, function(response) {
 					$.each(response, function(json) {
 						friend_count++;
-						console.log(response[json].id);
-						friend_ids[json] = response[json].id;
+						friend_ids[json]['id'] = response[json].id;
+						friend_ids[json]['name'] = response[json].name;
 					});
 					console.log(friend_ids);
 				});				
