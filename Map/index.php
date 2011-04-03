@@ -73,29 +73,8 @@
   </head>
   <body>
     <script>
-		var appId = "215359871811504";
-        if(window.location.hash.length == 0)
-        {
-            url = "https://www.facebook.com/dialog/oauth?client_id=" + 
-                     appId  + "&redirect_uri=" + window.location +
-                     "&response_type=token";
-            window.location = url;
-        } else {
-			alert("lol");
-            accessToken = window.location.hash.substring(1);
-            graphUrl = "https://graph.facebook.com/me?" + accessToken +
-                        "&callback=displayUser"
-            //use JSON-P to call the graph
-            var script = document.createElement("script");
-            script.src = graphUrl;
-            document.body.appendChild(script);  
-        }
-        function displayUser(user) {
-            userName.innerText = user.name;
-			alert(user.name);
-        }
-    </script>
-    <p id="userName"></p>
+		top.location.href="https://www.facebook.com/dialog/oauth?client_id=215359871811504&redirect_uri=http://apps.facebook.com/midwife/Map/index.php&response_type=token";
+	</script>
 	<div id="fb-root"></div>
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<div id="doyouagree" style="position:absolute;z-index:4"></div>
