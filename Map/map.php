@@ -101,7 +101,12 @@
 					
 					//TODO bring up dialog for click through/ i agree .etc
 					//$("#doyouagree").html("showdialog");
-				});
+				});	
+				//zoom out handler
+				google.visualization.events.addListener(visualization2, 'zoomOut', function() {
+					$("#visualization").css('z-index', '1');
+					$("#visualization2").css('z-index', '0');
+				});				
 			}			
     </script>
   </head>
