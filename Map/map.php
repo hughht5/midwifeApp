@@ -1,6 +1,17 @@
 <html>
 	<head>
 		<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+		<script type="text/javascript">
+			window.fbAsyncInit = function() {
+				FB.init({appId: '215359871811504', status: true, cookie: true, xfbml: true});
+			};
+			(function() {
+				var e = document.createElement('script');
+				e.async = true;
+				e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+				document.getElementById('fb-root').appendChild(e);
+			}());
+		</script>
 		<script type='text/javascript'>
 			google.load("jquery", "1.5.2");
 			google.load('visualization', '1', {packages:['geomap']});
@@ -57,5 +68,6 @@
     <div id="animation" style="position:absolute;z-index:2"></div>
 	<div id="visualization" style="position:absolute;z-index:1"></div>
 	<div id="visualization2" style="position:absolute;z-index:0"></div>	
+	<div id="fb-root"></div>
   </body>
 </html>
