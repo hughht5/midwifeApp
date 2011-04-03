@@ -85,8 +85,8 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths);
-							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths);
+							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t);
+							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t);
 						}						
 					});
 					
