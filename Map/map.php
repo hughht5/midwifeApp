@@ -74,17 +74,21 @@
 				});
 				//listen to same event but with diff param
 				google.visualization.events.addListener(visualization, 'select', function() {
-				
-					console.log(visualization.getSelection()[0].row);
-				
-					console.log(data);
-					console.log(data.D);
-					console.log(data.D[30]);
-					console.log(data.D[visualization.getSelection()[0].row].c);
-					alert(data.D[visualization.getSelection()[0].row].c[0].v);
+					//query spreadsheet for stats
+					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
+					//var spreadsheet_url = 'https://spreadsheets.google.com/ccc';								
+					$.ajax({
+						url: 'https://spreadsheets.google.com/feeds/cells/0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc/Sheet1/public/full',
+						type: 'GET',
+						dataType: 'xml',
+						//data: 'key=0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc&hl=en_GB',
+						success: function(msg) {
+							alert(msg);
+						}						
+					});
 					
 				
-					//TODO query for countries rates					
+					
 				
 					//TODO place stick men inside
 					//$("#animation").html('animation');
