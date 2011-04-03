@@ -97,13 +97,12 @@
 							mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
 							babyDeaths = (babyDeathsPer / 1000) * friend_count;
 						}						
-					});				
-
-					//TODO place stick men inside
+					});
+					//place pics inside
 					$("#animation").css('z-index', '3');
-					//$("#animation").html("<img src='http://graph.facebook.com/1552167723/picture'/>");
 					$.each(friend_ids, function(iterator) {
 						$("#animation").append("<img width='16' height='16' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/>");
+						if(iterator == 99) return false;
 					});
 					
 					
