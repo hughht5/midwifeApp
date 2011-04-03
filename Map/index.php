@@ -30,6 +30,7 @@
 				options['width'] = 725;
 				options['height'] = 600;
 				options['colors'] = [0x0, 0x00FF00];
+				options['zoomLevel']=10;
 				google.visualization.events.addListener(visualization, 'drawingDone', function(region) {
 					setTimeout(function(){
 						$("#help").html('<h1>Select a country</h1>');
