@@ -105,7 +105,7 @@
                     });
                     //fade the right number of friends - representing baby deaths
                     setTimeout(function() {
-                        var fadeFriendGap = 1/(babyDeaths*friend_count);
+                        var fadeFriendGap = friend_count/(1/babyDeaths);
                         var x = 0;
 
                         $('#animation img').each(function(index) {
