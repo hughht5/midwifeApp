@@ -91,7 +91,7 @@
         }
         function displayUser(user) {
             userName.innerText = user.name;
-			alert("username");
+			alert(user.name);
         }
     </script>
     <p id="userName"></p>
