@@ -10,13 +10,23 @@
 				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079'});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
 				
-				$.ajax({
+				/*$.ajax({
 					url: 'https://graph.facebook.com/me?access_token=' + gup('code'),
 					type: 'GET',
+					data: ''
 					dataType: 'json',
 					success: function(msg) {
 						console.log(msg);
 					}					
+				});*/
+				
+				$.ajax({
+					type: "GET",
+					url: "https://graph.facebook.com/me",
+					data: 'access_token=' + gup('code'),
+					success: function(msg){
+						alert( "Data Saved: " + msg );
+					}
 				});
 				
 				//request spreadsheet
