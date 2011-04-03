@@ -85,8 +85,8 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							babyDeaths = msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths / 1000;
-							mummyDeaths = msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths / 10;
+							babyDeaths = msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths;
+							mummyDeaths = msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths;
 						}						
 					});
 					
