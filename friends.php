@@ -1,6 +1,6 @@
 <html>
 
-    <div id="fb-root"></div>
+    <div id="fb-root" name="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <script>
         FB.init({
