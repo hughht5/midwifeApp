@@ -76,7 +76,8 @@
 				google.visualization.events.addListener(visualization, 'select', function() {
 					//query spreadsheet for stats
 					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
-					var deathsPerThousand = 0;
+					var babyDeaths = 0;
+					var mummyDeaths = 0;
 					$.ajax({
 						url: 'https://spreadsheets.google.com/feeds/list/0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc/od6/public/values',
 						type: 'GET',
@@ -84,7 +85,7 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							//deathsPerThousand = msg.feed.entry[0]. //1000(total / live births)
+							console.log(msg); 
 						}						
 					});
 					
