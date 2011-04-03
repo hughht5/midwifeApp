@@ -54,10 +54,7 @@
 				});
 				visualization.draw(data, options);				
 				//click event
-				google.visualization.events.addListener(visualization, 'regionClick', function(region) {
-				
-					
-				
+				google.visualization.events.addListener(visualization, 'regionClick', function(region) {				
 					//change zoomed region to region selected
 					options['region'] = region.region;
 					//draw to a second buffer and flip when drawing is done
@@ -85,11 +82,13 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t);
-							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t);
+							mummyDeaths = (msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t / 100000) * friends_count;
+							babyDeaths = (msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t / 1000) * friends_count;
 						}						
 					});
 					
+					console.log(mummyDeaths);
+					console.log(babyDeaths);
 				
 					
 				
