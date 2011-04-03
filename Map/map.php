@@ -11,6 +11,7 @@
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
 				
 				alert(gup('code'));
+				//
 				
 				/*$.ajax({
 					url: 'https://graph.facebook.com/me?access_token=',
