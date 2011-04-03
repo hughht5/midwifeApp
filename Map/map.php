@@ -30,25 +30,16 @@
 				FB.api(
 				{
 					method: 'fql.query',
-					query: 'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
+					query: 'SELECT uid2 FROM friend WHERE uid1=me()'   //'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
 				},
 				function(response) {
 					$.each(response, function(json) {
-						console.info(response[json].id);
-						FB.api(
-						{
-                            method: 'friends.getMutualFriends',
-                            target_uid: 'INSERT ANOTHER FRIEND ID HERE'
-                          },
-                          function(response) {
-                            console.info(response);
-                          }
-                          );
+						console.info(response[json].id);			
                 return false;
-            });
+				});
 
-          }
-        );
+				}
+				);
 
 
 				
