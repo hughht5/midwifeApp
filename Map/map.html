@@ -26,9 +26,9 @@
 				}, function(response) {
 					$.each(response, function(json) {
 						friend_count++;
-						console.log(json);
-						//friend_ids[] = json.id;
+						friend_ids[] = json;
 					});
+					console.log(friend_ids);
 				});				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
