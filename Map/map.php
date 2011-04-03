@@ -87,11 +87,12 @@
 							var babyDeathsPer = msg.feed.entry[0].gsx$neonataldeaths.$t;
 							mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
 							babyDeaths = (babyDeathsPer / 1000) * friend_count;
+							alert(mummyDeaths);
+					alert(babyDeaths);
 						}						
 					});
 					
-					alert(mummyDeaths);
-					alert(babyDeaths);
+					
 					
 					
 					
