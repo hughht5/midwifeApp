@@ -82,9 +82,9 @@
 						type: 'GET',
 						dataType: 'jsonp',
 						data: 'alt=json-in-script&sq=country==Afghanistan',
-						callback: 'myCallback',
+						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							alert(msg);
+							console.log(msg);
 						}						
 					});
 					
