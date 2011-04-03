@@ -44,6 +44,7 @@
 				options['dataMode'] = 'regions';
 				options['width'] = 725;
 				options['height'] = 600;
+				options['showZoomOut'] = true;
 				options['colors'] = [0x00FF00, 0x0];
 				google.visualization.events.addListener(visualization, 'drawingDone', function(region) {
 					setTimeout(function(){
@@ -82,27 +83,21 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							//console.log(msg);
 							var mummyDeathsPer = msg.feed.entry[0].gsx$maternaldeathsper100000births.$t;
 							var babyDeathsPer = msg.feed.entry[0].gsx$neonataldeaths.$t;
 							mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
 							babyDeaths = (babyDeathsPer / 1000) * friend_count;
-							alert(mummyDeaths);
-					alert(babyDeaths);
 						}						
-					});
-					
-					
-					
-					
-					
+					});				
 				
-					
+					//zoom out button
+					//select side countries
+					//
 				
 					//TODO place stick men inside
 					//$("#animation").html('animation');
 					
-					//TODO fade random ones away based on friend count and mortality rate
+					//TODO kill random ones away based on friend count and mortality rate
 					
 					//TODO bring up dialog for click through/ i agree .etc
 					//$("#doyouagree").html("showdialog");
