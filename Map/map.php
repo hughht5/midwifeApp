@@ -9,14 +9,16 @@
 				//auth with facebook
 				FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
+				var access_token;
 				FB.login(function (response) {
 					if (response.session) {
-						var access_token = response.session.access_token;
+						access_token = response.session.access_token;
 						alert(access_token);
 					} else {
 						alert('User is logged out');
 					}
 				});
+				//get friends list
 				$.ajax({
 					type: "GET",
 					url: "https://graph.facebook.com/me/friends",
