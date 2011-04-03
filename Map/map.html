@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 	<head>
 		<script type='text/javascript' src='https://www.google.com/jsapi'></script>
 		<script type='text/javascript'>
@@ -108,27 +109,31 @@
 						}
 					});*/
 					
+                    //$("#animation").css('z-index', '-1');
 					
-					//$("#animation").css('z-index', '-1');
+                    //TODO stop zoom in  on empty regions
 					
-					//TODO stop zoom in  on empty regions
+                    //TODO kill random ones away based on friend count and mortality rate
 					
-					//TODO kill random ones away based on friend count and mortality rate
-					
-					//TODO bring up dialog for click through/ i agree .etc
-					//$("#doyouagree").html("showdialog");
-				});	
+                    //TODO bring up dialog for click through/ i agree .etc
+                    //$("#doyouagree").html("showdialog");
+                });
 							
-			}			
-    </script>
-  </head>
-  <body>
-	<div id="fb-root"></div>
-	<script src="http://connect.facebook.net/en_US/all.js"></script>
-	<div id="doyouagree" style="position:absolute;z-index:4"></div>
-	<div id="animation" style="position:absolute;z-index:-1;margin-left:45px;margin-top:35px;width:635px;height:550px"></div>
-	<div id="help" style="position:absolute;z-index:2;margin-top:20"><h1>Loading Map..</h1></div>
-	<div id="visualization" style="position:absolute;z-index:1;height:603px"></div>
-	<div id="visualization2" style="position:absolute;z-index:0"></div>	
-  </body>
+            }
+
+            $('#animation').masonry({
+                columnWidth: 32,
+                itemSelector: '.box'
+            });
+        </script>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+        <div id="doyouagree" style="position:absolute;z-index:4"></div>
+        <div id="animation" style="position:absolute;z-index:-1;margin-left:45px;margin-top:35px;width:635px;height:550px"></div>
+        <div id="help" style="position:absolute;z-index:2;margin-top:20"><h1>Loading Map..</h1></div>
+        <div id="visualization" style="position:absolute;z-index:1;height:603px"></div>
+        <div id="visualization2" style="position:absolute;z-index:0"></div>
+    </body>
 </html>
