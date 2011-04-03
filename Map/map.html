@@ -107,7 +107,8 @@
 					setTimeout(function() {
 						$('#animation div').each(function(index) {
 							if((Math.random()*8)<4) {
-								$(this).css('visibility', 'hidden');
+								//$(this).css('visibility', 'hidden');
+								$(this).fadeOut(2,function(){});
 							}
 						});
 					}, 5000);
