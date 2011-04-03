@@ -83,7 +83,7 @@
 				name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
 				var regexS = "[\\?&]"+name+"=([^&#]*)";
 				var regex = new RegExp( regexS );
-				alert(window.top.location);
+				alert(window.top.location.href);
 				/*var results = regex.exec(top.location.href);
 				if( results == null )
 					return "";
