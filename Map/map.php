@@ -13,7 +13,6 @@
 				FB.login(function (response) {
 					if (response.session) {
 						access_token = response.session.access_token;
-						alert(access_token);
 					} else {
 						alert('User is logged out');
 					}
