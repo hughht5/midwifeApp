@@ -1,6 +1,6 @@
 <?php
 	 header('Location: https://www.facebook.com/dialog/oauth?
-     client_id=YOUR_APP_ID&redirect_uri=YOUR_URL&scope=email,read_stream&
+     client_id=215359871811504&redirect_uri=http://www.mdganalysis.org/mashup/midwifeApp/Map/&scope=email,read_stream&
      response_type=token') ;
 ?>
 <html>
