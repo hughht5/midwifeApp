@@ -75,6 +75,7 @@
 				//listen to same event but with diff param
 				google.visualization.events.addListener(visualization, 'select', function() {
 				
+					alert(visualization.getSelection().row);
 				
 					console.log(data);
 					console.log(data.D);
