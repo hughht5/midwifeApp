@@ -100,12 +100,12 @@
 					});
 					//place pics inside
 					$("#animation").css('z-index', '3');
+					var grid = [][];
 					$.each(friend_ids, function(iterator) {
 						$("#animation").append("<img style='opacity:0.9;filter:alpha(opacity=90)' width='24' height='24' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/>");
 						if(iterator == 195) return false;
 					});
-					
-					
+
 					
 					//<a href="http://www.facebook.com/profile.php?id=' . $row[facebookID] . '" target="_blank"><img src="http://graph.facebook.com/' . $row[facebookID] . "/picture\" /></a>"				
 					
