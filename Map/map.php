@@ -69,7 +69,13 @@
 							$("#help").html('');
 						}, 2000);
 					});
-					visualization2.draw(data, options);				
+					visualization2.draw(data, options);
+					//zoom out handler
+					google.visualization.events.addListener(visualization2, 'zoomOut', function() {
+						alert("fuck");
+						$("#visualization").css('z-index', '1');
+						$("#visualization2").css('z-index', '0');
+					});		
 				});
 				//listen to same event but with diff param
 				google.visualization.events.addListener(visualization, 'select', function() {
@@ -103,12 +109,7 @@
 					//TODO bring up dialog for click through/ i agree .etc
 					//$("#doyouagree").html("showdialog");
 				});	
-				//zoom out handler
-				google.visualization.events.addListener(visualization2, 'zoomOut', function() {
-					alert("fuck");
-					$("#visualization").css('z-index', '1');
-					$("#visualization2").css('z-index', '0');
-				});				
+							
 			}			
     </script>
   </head>
