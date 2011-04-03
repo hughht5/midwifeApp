@@ -55,6 +55,9 @@
 				visualization.draw(data, options);				
 				//click event
 				google.visualization.events.addListener(visualization, 'regionClick', function(region) {
+				
+					alert("region");
+				
 					//change zoomed region to region selected
 					options['region'] = region.region;
 					//draw to a second buffer and flip when drawing is done
@@ -67,13 +70,15 @@
 							$("#help").html('');
 						}, 2000);
 					});
-					visualization2.draw(data, options);					
-					//TODO get amount of friends
-					alert(friend_count);
-					
-					
-					//TODO find out boundaries in which to draw					
-					
+					visualization2.draw(data, options);				
+				});
+				//listen to same event but with diff param
+				google.visualization.events.addListener(visualization, 'select', function() {
+				
+					alert("select");
+				
+					//TODO query for countries rates					
+				
 					//TODO place stick men inside
 					//$("#animation").html('animation');
 					
@@ -81,7 +86,7 @@
 					
 					//TODO bring up dialog for click through/ i agree .etc
 					//$("#doyouagree").html("showdialog");
-				});			
+				});
 			}			
     </script>
   </head>
