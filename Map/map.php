@@ -111,7 +111,7 @@
 	<div id="fb-root"></div>
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<div id="doyouagree" style="position:absolute;z-index:4"></div>
-    <div id="animation" style="position:absolute;z-index:3;margin-left:205px;margin-top:40px;width:350px;height:300px"></div>
+    <div id="animation" style="position:absolute;z-index:3;margin-left:205px;margin-top:180px;width:350px;height:300px"></div>
 	<div id="help" style="position:absolute;z-index:2;height:800;margin-top:20"><h1>Loading Map...</h1></div>
 	<div id="visualization" style="position:absolute;z-index:1"></div>
 	<div id="visualization2" style="position:absolute;z-index:0"></div>	
