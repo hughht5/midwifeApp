@@ -7,27 +7,19 @@
 			google.setOnLoadCallback(drawVisualization);			
 			function drawVisualization() {
 				//auth with facebook
-				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079'});
+				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
 				
-				/*$.ajax({
-					url: 'https://graph.facebook.com/me?access_token=' + gup('code'),
-					type: 'GET',
-					data: ''
-					dataType: 'json',
-					success: function(msg) {
-						console.log(msg);
-					}					
-				});*/
+				alert(getCookie("access_token"));
 				
-				$.ajax({
+				/*$.ajax({
 					type: "GET",
 					url: "https://graph.facebook.com/me",
-					data: 'access_token=' + gup('code'),
+					data: 'access_token=' + ,
 					success: function(msg){
 						alert( "Data Saved: " + msg );
 					}
-				});
+				});*/
 				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
@@ -85,17 +77,20 @@
 					//TODO bring up dialog for click through/ i agree .etc
 					//$("#doyouagree").html("showdialog");
 				});			
-			}
-			function gup(name)
+			}			
+			function getCookie(c_name)
 			{
-				name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-				var regexS = "[\\?&]"+name+"=([^&#]*)";
-				var regex = new RegExp( regexS );
-				var results = regex.exec(window.location.href);
-				if( results == null )
-					return "";
-				else
-				return results[1];
+				var i,x,y,ARRcookies=document.cookie.split(";");
+				for (i=0;i<ARRcookies.length;i++)
+				{
+					x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+					y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+					x=x.replace(/^\s+|\s+$/g,"");
+					if (x==c_name)
+					{
+						return unescape(y);
+					}
+				}
 			}
     </script>
   </head>
