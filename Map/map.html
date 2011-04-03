@@ -6,6 +6,7 @@
 			google.load('visualization', '1', {packages:['geomap']});
 			google.setOnLoadCallback(drawVisualization);	
 			var friend_count = 0;
+			var friend_ids = [];
 			function drawVisualization() {
 				//auth with facebook
 				FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
@@ -25,6 +26,8 @@
 				}, function(response) {
 					$.each(response, function(json) {
 						friend_count++;
+						console.log(json);
+						friend_ids[] = json.id;
 					});
 				});				
 				//request spreadsheet
@@ -97,9 +100,13 @@
 
 					//TODO place stick men inside
 					$("#animation").css('z-index', '3');
-						$("#animation").html("ANIMATING!!!!");
-						
+					$("#animation").html("ANIMATING!!!!");
+					
+					<a href="http://www.facebook.com/profile.php?id=' . $row[facebookID] . '" target="_blank"><img src="http://graph.facebook.com/' . $row[facebookID] . "/picture\" /></a>"				
+					
 					//$("#animation").css('z-index', '-1');
+					
+					//TODO stop zoom in  on empty regions
 					
 					//TODO kill random ones away based on friend count and mortality rate
 					
