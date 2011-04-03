@@ -26,7 +26,8 @@
 				}, function(response) {
 					$.each(response, function(json) {
 						friend_count++;
-						friend_ids[] = json;
+						console.log(json);
+						//friend_ids[] = json;
 					});
 					console.log(friend_ids);
 				});				
