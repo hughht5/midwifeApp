@@ -10,7 +10,7 @@
 				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079'});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
 				
-				alert(gup('access_token'));
+				alert(gup('code'));
 				
 				/*$.ajax({
 					url: 'https://graph.facebook.com/me?access_token=',
@@ -83,12 +83,11 @@
 				name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
 				var regexS = "[\\?&]"+name+"=([^&#]*)";
 				var regex = new RegExp( regexS );
-				alert(window.top.location.href);
-				/*var results = regex.exec(top.location.href);
+				var results = regex.exec(window.location.href);
 				if( results == null )
 					return "";
 				else
-				return results[1];*/
+				return results[1];
 			}
     </script>
   </head>
