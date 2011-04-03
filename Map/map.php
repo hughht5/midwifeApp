@@ -18,14 +18,40 @@
 					}
 				});
 				//get friends list
-				$.ajax({
+				/*$.ajax({
 					type: "GET",
 					url: "https://graph.facebook.com/me",
 					data: 'access_token=' + access_token,
 					success: function(msg){
 						alert( "Data Saved: " + msg );
 					}
-				});				
+				});*/
+
+				FB.api(
+				{
+					method: 'fql.query',
+					query: 'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
+				},
+				function(response) {
+					$.each(response, function(json) {
+						console.info(response[json].id);
+						FB.api(
+						{
+                            method: 'friends.getMutualFriends',
+                            target_uid: 'INSERT ANOTHER FRIEND ID HERE'
+                          },
+                          function(response) {
+                            console.info(response);
+                          }
+                          );
+                return false;
+            });
+
+          }
+        );
+
+
+				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
 				query.send(handleQueryResponse);
@@ -83,20 +109,6 @@
 					//$("#doyouagree").html("showdialog");
 				});			
 			}			
-			function getCookie(c_name)
-			{
-				var i,x,y,ARRcookies=document.cookie.split(";");
-				for (i=0;i<ARRcookies.length;i++)
-				{
-					x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-					y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-					x=x.replace(/^\s+|\s+$/g,"");
-					if (x==c_name)
-					{
-						return unescape(y);
-					}
-				}
-			}
     </script>
   </head>
   <body>
