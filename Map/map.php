@@ -83,8 +83,9 @@
 				name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
 				var regexS = "[\\?&]"+name+"=([^&#]*)";
 				var regex = new RegExp( regexS );
-				alert(top.location.href);
-				var results = regex.exec(top.location.href);
+				alert(top.location);
+				alert(window.location);
+				var results = regex.exec(location.href);
 				if( results == null )
 					return "";
 				else
