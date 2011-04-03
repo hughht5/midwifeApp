@@ -78,7 +78,7 @@
 				
 					console.log(data);
 					console.log(data.D);
-					console.log(data.D[visualization.getSelection().row]);
+					console.log(data.D[30]);
 					console.log(data.D[visualization.getSelection().row].c);
 					alert(data.D[visualization.getSelection().row].c[0].v);
 					
