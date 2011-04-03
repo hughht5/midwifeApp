@@ -9,25 +9,22 @@
 				//auth with facebook
 				FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
-				
 				FB.login(function (response) {
-    if (response.session) {
-        var access_token = response.session.access_token;
-        alert(access_token);
-    } else {
-        alert('User is logged out');
-    }
-});
-				
-				/*$.ajax({
+					if (response.session) {
+						var access_token = response.session.access_token;
+						alert(access_token);
+					} else {
+						alert('User is logged out');
+					}
+				});
+				$.ajax({
 					type: "GET",
-					url: "https://graph.facebook.com/me",
-					data: 'access_token=' + ,
+					url: "https://graph.facebook.com/me/friends",
+					data: 'access_token=' + access_token,
 					success: function(msg){
 						alert( "Data Saved: " + msg );
 					}
-				});*/
-				
+				});				
 				//request spreadsheet
 				var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
 				query.send(handleQueryResponse);
