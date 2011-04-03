@@ -19,8 +19,8 @@
 				});
 				//get friends list
 				$.ajax({
-					type: "POST",
-					url: "https://graph.facebook.com/me/friends",
+					type: "GET",
+					url: "https://graph.facebook.com/me",
 					data: 'access_token=' + access_token,
 					success: function(msg){
 						alert( "Data Saved: " + msg );
