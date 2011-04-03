@@ -74,7 +74,12 @@
 					google.visualization.events.addListener(visualization2, 'zoomOut', function() {
 						$("#visualization").css('z-index', '1');
 						$("#visualization2").css('z-index', '0');
-					});		
+					});	
+					//region click for side regions
+					google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
+						options['region'] = region.region;
+						visualization2.draw(data, options);
+					});					
 				});
 				//listen to same event but with diff param which is after
 				google.visualization.events.addListener(visualization, 'select', function() {
