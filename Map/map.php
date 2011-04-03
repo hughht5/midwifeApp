@@ -28,17 +28,16 @@
 				});*/
 
 				FB.api(
-				{
-					method: 'fql.query',
-					query: 'SELECT uid2 FROM friend WHERE uid1=me()'   //'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
-				},
-				function(response) {
-					$.each(response, function(json) {
-						console.info(response[json].id);			
-                return false;
-				});
-
-				}
+					{
+						method: 'fql.query',
+						query: 'SELECT uid2 FROM friend WHERE uid1=me()'   //'SELECT id FROM profile WHERE id IN (SELECT uid2 FROM friend WHERE uid1=me())'
+					},
+					function(response) {
+						$.each(response, function(json) {
+							console.log(response[json].id);			
+							return false;
+						});
+					}
 				);
 
 
