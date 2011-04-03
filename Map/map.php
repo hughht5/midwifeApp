@@ -86,7 +86,7 @@
 							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t);
 							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t);
 							console.log(friend_count);
-						
+						console.log("27.5"/1000);
 							mummyDeaths = (msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t / 100000) * friend_count;
 							babyDeaths = (msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t / 1000) * friend_count;
 						}						
