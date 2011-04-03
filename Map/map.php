@@ -32,19 +32,15 @@
 				query.send(handleQueryResponse);
 			}
 			function handleQueryResponse(response) {
-				//check for error
-				if (response.isError()) {
-					alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-					return;
-				}
-				//draw
+				//draw world map
 				var data = response.getDataTable();
 				visualization = new google.visualization.GeoMap(document.getElementById('visualization'));
+				var visualization2; //built later
 				var options = {};
 				options['dataMode'] = 'regions';
 				options['width'] = 725;
 				options['height'] = 600;
-				options['colors'] = [0x0, 0x00FF00];
+				options['colors'] = [0x00FF00, 0x0];
 				google.visualization.events.addListener(visualization, 'drawingDone', function(region) {
 					setTimeout(function(){
 						$("#help").html('<h1>Select a country</h1>');
@@ -53,11 +49,10 @@
 					}, 2000);					
 				});
 				visualization.draw(data, options);				
-				//click event
+				//render zoomed in region above
 				google.visualization.events.addListener(visualization, 'regionClick', function(region) {				
-					//change zoomed region to region selected
+					//draw zoomed in
 					options['region'] = region.region;
-					//draw to a second buffer and flip when drawing is done
 					visualization2 = new google.visualization.GeoMap(document.getElementById('visualization2'));					
 					google.visualization.events.addListener(visualization2,'drawingDone', function(){
 						$("#help").html('<h1>Loading...</h1>');
@@ -67,9 +62,20 @@
 							$("#help").html('');
 						}, 2000);
 					});
-					visualization2.draw(data, options);				
+					options['showZoomOut'] = true;
+					visualization2.draw(data, options);
+					//zoom out handler
+					google.visualization.events.addListener(visualization2, 'zoomOut', function() {
+						$("#visualization").css('z-index', '1');
+						$("#visualization2").css('z-index', '0');
+					});	
+					//region click for side regions
+					google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
+						options['region'] = region.region;
+						visualization2.draw(data, options);
+					});					
 				});
-				//listen to same event but with diff param
+				//do the animation
 				google.visualization.events.addListener(visualization, 'select', function() {
 					//query spreadsheet for stats
 					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
@@ -82,35 +88,22 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-						
-							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t);
-							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t);
-							console.log(friend_count);
-							console.log("27.5 "/1000);
-							
-							var mummyDeathsPer100000 = msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t;
-							var babyDeathsPer1000 = msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t
-							mummyDeaths = (mummyDeathsPer100000 / 100000) * friend_count;
-							babyDeaths = (babyDeathsPer1000 / 1000) * friend_count;
+							var mummyDeathsPer = msg.feed.entry[0].gsx$maternaldeathsper100000births.$t;
+							var babyDeathsPer = msg.feed.entry[0].gsx$neonataldeaths.$t;
+							mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
+							babyDeaths = (babyDeathsPer / 1000) * friend_count;
 						}						
-					});
-					
-					console.log(mummyDeaths);
-					console.log(babyDeaths);
-					
-					
-					
-				
-					
-				
+					});				
+
 					//TODO place stick men inside
 					//$("#animation").html('animation');
 					
-					//TODO fade random ones away based on friend count and mortality rate
+					//TODO kill random ones away based on friend count and mortality rate
 					
 					//TODO bring up dialog for click through/ i agree .etc
 					//$("#doyouagree").html("showdialog");
-				});
+				});	
+							
 			}			
     </script>
   </head>
@@ -118,8 +111,8 @@
 	<div id="fb-root"></div>
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<div id="doyouagree" style="position:absolute;z-index:4"></div>
-    <div id="animation" style="position:absolute;z-index:3"></div>
-	<div id="help" style="position:absolute;z-index:2;height:800;"><h1>Loading Map...</h1></div>
+    <div id="animation" style="position:absolute;z-index:3;margin-left:205px;margin-top:180px;width:350px;height:300px"></div>
+	<div id="help" style="position:absolute;z-index:2;height:800;margin-top:20"><h1>Loading Map...</h1></div>
 	<div id="visualization" style="position:absolute;z-index:1"></div>
 	<div id="visualization2" style="position:absolute;z-index:0"></div>	
   </body>
