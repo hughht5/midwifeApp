@@ -104,6 +104,7 @@
 				});	
 				//zoom out handler
 				google.visualization.events.addListener(visualization2, 'zoomOut', function() {
+					alert("fuck");
 					$("#visualization").css('z-index', '1');
 					$("#visualization2").css('z-index', '0');
 				});				
