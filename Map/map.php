@@ -82,6 +82,11 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
+						
+							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t);
+							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t);
+							console.log(friend_count);
+						
 							mummyDeaths = (parseInt(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t) / 100000) * friend_count;
 							babyDeaths = (parseInt(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t) / 1000) * friend_count;
 						}						
