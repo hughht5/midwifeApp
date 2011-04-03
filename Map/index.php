@@ -3,11 +3,7 @@
   </head>
   <body>
     <script>
-		if(window.location.hash.length == 0) {
-			top.location.href="https://www.facebook.com/dialog/oauth?client_id=215359871811504&redirect_uri=http://apps.facebook.com/midwife/index.php&response_type=token";
-		} else {
-			alert("WOOP WOOP");
-		}
+		top.location.href="https://www.facebook.com/dialog/oauth?client_id=215359871811504&redirect_uri=http://apps.facebook.com/midwife/map.php&response_type=token";
 	</script>
   </body>
 </html>
