@@ -99,8 +99,7 @@
 					});
 					//place pics inside
 					$("#animation").css('z-index', '3');
-					$.each(friend_ids, function(iterator) {
-					
+					$.each(friend_ids, function(iterator) {					
 						$("#animation").append("<div style='display:inline;width:32px;height:32px;'><img style='opacity:0.9;filter:alpha(opacity=90)' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
 						if(iterator == 195) return false;
 					});
@@ -125,7 +124,7 @@
 	<div id="fb-root"></div>
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
 	<div id="doyouagree" style="position:absolute;z-index:4"></div>
-	<div id="animation" style="position:absolute;z-index:-1;margin-left:205px;margin-top:160px;width:350px;height:300px"></div>
+	<div id="animation" style="position:absolute;z-index:-1;margin-left:30px;margin-top:25px;width:700px;height:550px"></div>
 	<div id="help" style="position:absolute;z-index:2;margin-top:20"><h1>Loading Map..</h1></div>
 	<div id="visualization" style="position:absolute;z-index:1;height:800px"></div>
 	<div id="visualization2" style="position:absolute;z-index:0"></div>	
