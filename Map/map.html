@@ -93,6 +93,7 @@
                         success: function(msg) {
                             var mummyDeathsPer = msg.feed.entry[0].gsx$maternaldeathsper100000births.$t;
                             var babyDeathsPer = msg.feed.entry[0].gsx$neonataldeaths.$t;
+                            alert(babyDeathsPer);
                             mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
                             babyDeaths = (babyDeathsPer / 1000) * friend_count;
                         }
@@ -106,7 +107,7 @@
                     //fade the right number of friends - representing baby deaths
                     setTimeout(function() {
                         var fadeFriendGap = friend_count/(1/babyDeaths);
-                        alert(babyDeaths);
+                        
                         var x = 0;
 
                         $('#animation img').each(function(index) {
