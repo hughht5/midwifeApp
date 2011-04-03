@@ -10,7 +10,7 @@
 				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079'});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
 				
-				console.log(arguments);
+				alert(gup('access_token'));
 				
 				/*$.ajax({
 					url: 'https://graph.facebook.com/me?access_token=',
