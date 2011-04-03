@@ -82,10 +82,11 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							var mummyDeathsPer100000 = msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t;
-							var babyDeathsPer1000 = msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t;
-							mummyDeaths = (mummyDeathsPer100000 / 100000) * friend_count;
-							babyDeaths = (babyDeathsPer1000 / 1000) * friend_count;
+							console.log(msg);
+							//var mummyDeathsPer = msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t;
+							//var babyDeathsPer = msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t;
+							//mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
+							//babyDeaths = (babyDeathsPer / 1000) * friend_count;
 						}						
 					});
 					
