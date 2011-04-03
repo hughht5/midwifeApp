@@ -78,9 +78,11 @@
 					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
 					//var spreadsheet_url = 'https://spreadsheets.google.com/ccc';								
 					$.ajax({
-						url: 'https://spreadsheets.google.com/feeds/list/0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc/od6/public/values?alt=json-in-script&callback=myCallback&sq=country==Afghanistan',
+						url: 'https://spreadsheets.google.com/feeds/list/0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc/od6/public/values',
 						type: 'GET',
-						dataType: 'json',
+						dataType: 'jsonp',
+						data: 'alt=json-in-script&sq=country==Afghanistan',
+						callback: 'myCallback',
 						success: function(msg) {
 							alert(msg);
 						}						
