@@ -100,7 +100,7 @@
 					//place pics inside
 					$("#animation").css('z-index', '3');
 					$.each(friend_ids, function(iterator) {					
-						$("#animation").append("<div style='display:inline;width:32px;height:32px;'><img style='margin-top:"+(Math.random()*8)+"px;margin-left:"+(Math.random()*8)+"' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
+						$("#animation").append("<div style='display:inline;width:32px;height:32px;'><img style='padding:0;margin-top:"+(Math.random()*8)+"px;margin-left:"+(Math.random()*8)+"' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
 						if(iterator == 323) return false;
 					});
 					
