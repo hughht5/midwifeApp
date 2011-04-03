@@ -76,15 +76,15 @@
 				google.visualization.events.addListener(visualization, 'select', function() {
 					//query spreadsheet for stats
 					var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
-					//var spreadsheet_url = 'https://spreadsheets.google.com/ccc';								
+					var deathsPerThousand = 0;
 					$.ajax({
 						url: 'https://spreadsheets.google.com/feeds/list/0ApT3nLwQu_ugdFNFOGRIN3NOZy1VMVlOUjNZbFBjMXc/od6/public/values',
 						type: 'GET',
 						dataType: 'jsonp',
-						data: 'alt=json-in-script&sq=country==Afghanistan',
+						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-							console.log(msg);
+							//deathsPerThousand = msg.feed.entry[0]. //1000(total / live births)
 						}						
 					});
 					
