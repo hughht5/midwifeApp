@@ -6,7 +6,7 @@
 			google.load('visualization', '1', {packages:['geomap']});
 			google.setOnLoadCallback(drawVisualization);	
 			var friend_count = 0;
-			var friend_ids = new Array();
+			var friend_ids = new Array();			
 			function drawVisualization() {
 				//auth with facebook
 				FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
@@ -27,8 +27,7 @@
 				}, function(response) {
 					$.each(response, function(json) {
 						friend_count++;
-						friend_ids[json]['id'] = response[json].id;
-						friend_ids[json]['name'] = response[json].name;
+						friend_ids[json] = [response[json].id, response[json].name]
 					});
 					console.log(friend_ids);
 				});				
