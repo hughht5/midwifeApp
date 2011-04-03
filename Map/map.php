@@ -108,6 +108,11 @@
 					$("#visualization").css('z-index', '1');
 					$("#visualization2").css('z-index', '0');
 				});				
+				google.visualization.events.addListener(visualization, 'zoomOut', function() {
+					alert("fuck");
+					$("#visualization").css('z-index', '1');
+					$("#visualization2").css('z-index', '0');
+				});	
 			}			
     </script>
   </head>
