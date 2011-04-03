@@ -7,7 +7,7 @@
 			google.setOnLoadCallback(drawVisualization);			
 			function drawVisualization() {
 				//auth with facebook
-				FB.init({apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
+				FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
 				FB.Canvas.setAutoResize();//auto extend the height of the iframe
 				
 				alert(getCookie("fbs_215359871811504"));
