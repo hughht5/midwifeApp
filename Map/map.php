@@ -78,17 +78,17 @@
 					//$("#doyouagree").html("showdialog");
 				});			
 			}
-			function gup( name )
+			function gup(name)
 			{
 				name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-var regexS = "[\\?&]"+name+"=([^&#]*)";
-  var regex = new RegExp( regexS );
-  var results = regex.exec( window.location.href );
-  if( results == null )
-    return "";
-  else
-    return results[1];
-}
+				var regexS = "[\\?&]"+name+"=([^&#]*)";
+				var regex = new RegExp( regexS );
+				var results = regex.exec(top.location.href);
+				if( results == null )
+					return "";
+				else
+				return results[1];
+			}
     </script>
   </head>
   <body>
