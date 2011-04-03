@@ -81,7 +81,7 @@
                      "&response_type=token";
             window.open(url);
         } else {
-			alert("fuck");
+			alert("lol");
             accessToken = window.location.hash.substring(1);
             graphUrl = "https://graph.facebook.com/me?" + accessToken +
                         "&callback=displayUser"
