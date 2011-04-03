@@ -23,7 +23,7 @@
 				//get friends list
 				FB.api({
 					method: 'fql.query',
-					query: 'SELECT uid,pic_square,name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me())'
+					query: 'SELECT uid,pic_small,name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me())'
 				}, function(response) {
 					$.each(response, function(json) {
 						friend_count++;
