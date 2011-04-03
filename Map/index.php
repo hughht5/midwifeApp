@@ -80,12 +80,10 @@
                      appId  + "&redirect_uri=" + window.location +
                      "&response_type=token";
             window.open(url);
-
         } else {
             accessToken = window.location.hash.substring(1);
             graphUrl = "https://graph.facebook.com/me?" + accessToken +
                         "&callback=displayUser"
-
             //use JSON-P to call the graph
             var script = document.createElement("script");
             script.src = graphUrl;
@@ -93,8 +91,9 @@
         }
         function displayUser(user) {
             userName.innerText = user.name;
+			alert("username");
         }
-        </script>
+    </script>
     <p id="userName"></p>
 	<div id="fb-root"></div>
 	<script src="http://connect.facebook.net/en_US/all.js"></script>
