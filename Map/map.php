@@ -44,7 +44,7 @@
 				options['dataMode'] = 'regions';
 				options['width'] = 725;
 				options['height'] = 600;
-				options['colors'] = [0x0, 0x00FF00];
+				options['colors'] = [0x00FF00, 0x0];
 				google.visualization.events.addListener(visualization, 'drawingDone', function(region) {
 					setTimeout(function(){
 						$("#help").html('<h1>Select a country</h1>');
@@ -82,12 +82,6 @@
 						data: 'alt=json-in-script&sq=country=='+country_name,
 						jsonpCallback: 'myCallback',
 						success: function(msg) {
-						
-							console.log(msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t);
-							console.log(msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t);
-							console.log(friend_count);
-							console.log("27.5 "/1000);
-							
 							var mummyDeathsPer100000 = msg.feed.entry[0].gsx$maternalmortalityratioper100000livebirths.$t;
 							var babyDeathsPer1000 = msg.feed.entry[0].gsx$neonatalmortalityrateper1000livebirths.$t
 							mummyDeaths = (mummyDeathsPer100000 / 100000) * friend_count;
