@@ -70,6 +70,7 @@
 						$("#visualization").css('z-index', '1');
 						$("#visualization2").css('z-index', '0');
 						$("#animation").html('');
+						$("#animation").css('z-index', '-1');
 					});	
 					//region click for side regions
 					google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
@@ -120,11 +121,6 @@
                 });
 							
             }
-
-            $('#animation').masonry({
-                columnWidth: 32,
-                itemSelector: '.box'
-            });
         </script>
     </head>
     <body>
