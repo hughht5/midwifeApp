@@ -128,7 +128,7 @@
                         $('#animation img').each(function(index) {
                             if(x>fadeFriendGap) {
                                 $(this).fadeTo(3000, 20.0,function(){
-                                    $(this).attr("src", "dead.png");
+                                    $(this).attr("src", "dead2.jgp");
                                 });
                                 x=0;
                                 
@@ -165,7 +165,6 @@
                     //$("#doyouagree").html("showdialog");
                 });
                 function pingUshahidi(region){
-                alert("lol2");
                     $.ajax({
                         url: 'mdganalysis.org/ushahidi/collectfbreports.php',
                         type: 'GET',
