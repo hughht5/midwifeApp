@@ -65,6 +65,9 @@
                     });
                     options['showZoomOut'] = true;
                     visualization2.draw(data, options);
+
+
+
                     //zoom out handler
                     google.visualization.events.addListener(visualization2, 'zoomOut', function() {
                         $("#visualization").css('z-index', '1');
@@ -76,10 +79,12 @@
                     google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
                         options['region'] = region.region;
                         visualization2.draw(data, options);
+
                     });
                 });
                 //do the animation
                 google.visualization.events.addListener(visualization, 'select', function() {
+                    visualization2.setSelection(visualization.getSelection());////////////////////
                     //query spreadsheet for stats
                     var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
                     var babyDeaths = 0;
