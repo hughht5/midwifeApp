@@ -120,18 +120,14 @@
                         if(iterator == 324) return false;
                     });
                     //fade the right number of friends to dead.png - representing baby deaths
-                    setTimeout(function() {
-                        var fadeFriendGap = friend_count/babyDeaths;
-                        
+                    setTimeout(function() {                        
                         var x = 0;
                         var y=0;
-
                         $('#animation img').each(function(index) {
                             if(x>30) {
                                 if (y<babyDeaths){
                                     $(this).fadeTo(3000, 20.0,function(){
                                         $(this).attr("src", "dead2.jpg");
-                                        
                                     });y++;
                                 }
                             }x++;
@@ -145,12 +141,12 @@
                         var x = 0;
 
                         $('#animation img').each(function(index) {
-                            if(x>fadeFriendGap) {
-                                $(this).fadeTo(3000, 20.0,function(){
-                                    $(this).attr("src", "rip.jpg");
-                                });
-                                x=0;
-
+                            if(x>60) {
+                                if (y<babyDeaths){
+                                    $(this).fadeTo(3000, 20.0,function(){
+                                        $(this).attr("src", "rip.jpg");
+                                    });y++;
+                                }
                             }x++;
                         });
                     }, 3000);//this can be called from text div
