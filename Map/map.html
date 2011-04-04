@@ -79,6 +79,7 @@
                     google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
                         options['region'] = region.region;
                         visualization2.draw(data, options);
+                        alert(region.region);
 
                     });
                 });
