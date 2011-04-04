@@ -103,7 +103,7 @@
                         $("#animation").append("<div style='display:inline;width:32px;height:32px;'><div style='float:left;width:30;height:"+(Math.random()*8)+"'></div><img style='padding:0;margin-left:"+(Math.random()*8)+"' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
                         if(iterator == 324) return false;
                     });
-                    //fade the right number of friends - representing baby deaths
+                    //fade the right number of friends to dead.png - representing baby deaths
                     setTimeout(function() {
                         var fadeFriendGap = friend_count/babyDeaths;
                         
@@ -119,6 +119,23 @@
                             }x++;
                         });
                     }, 1000);//this can be called from text div
+
+                    //fade the right number of friends to unhappy.png - representing baby deaths
+                    setTimeout(function() {
+                        var fadeFriendGap = friend_count/mummyDeaths;
+
+                        var x = 0;
+
+                        $('#animation img').each(function(index) {
+                            if(x>fadeFriendGap) {
+                                $(this).fadeTo(3000, 20.0,function(){
+                                    $(this).attr("src", "unhappy.png");
+                                });
+                                x=0;
+
+                            }x++;
+                        });
+                    }, 3000);//this can be called from text div
 
 
 					
