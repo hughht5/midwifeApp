@@ -59,17 +59,9 @@
                 google.visualization.events.addListener(visualization, 'regionClick', function(region) {
                     //draw zoomed in
                     options['region'] = region.region;
+                    
                     //ping the ushahidi server to record interest in selected regions
-                    $.ajax({
-                        url: 'mdganalysis.org/ushahidi/collectfbreports.php',
-                        type: 'GET',
-                        data: 'location='+region.region+'&name='+name,
-                        jsonpCallback: 'myCallback',
-                        success: function(msg) {
-                            alert(msg);
-                        }
-                    });
-
+                    pingUshahidi(region.region);
                     
                     visualization2 = new google.visualization.GeoMap(document.getElementById('visualization2'));
                     google.visualization.events.addListener(visualization2,'drawingDone', function(){
@@ -96,7 +88,8 @@
                     google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
                         options['region'] = region.region;
                         visualization2.draw(data, options);
-                        alert(region.region);///////////////////////////////////////////////////////////////////////
+                        //ping the ushahidi server to record interest in selected regions
+                        pingUshahidi(region.region);
 
                     });
                 });
@@ -171,7 +164,19 @@
                     //TODO bring up dialog for click through/ i agree .etc
                     //$("#doyouagree").html("showdialog");
                 });
-							
+                function pingUshahidi(region){
+                alert("lol2");
+                    $.ajax({
+                        url: 'mdganalysis.org/ushahidi/collectfbreports.php',
+                        type: 'GET',
+                        data: 'location='+region+'&name='+name,
+                        jsonpCallback: 'myCallback',
+                        success: function(msg) {
+                            alert("lol");
+                            alert(msg);
+                        }
+                    });
+                }
             }
         </script>
     </head>
