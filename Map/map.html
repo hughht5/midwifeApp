@@ -7,6 +7,7 @@
             google.setOnLoadCallback(drawVisualization);
             var friend_count = 0;
             var friend_ids = new Array();
+            var name = "";
             function drawVisualization() {
                 //auth with facebook
                 FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
@@ -27,6 +28,10 @@
                         friend_count++;
                         friend_ids[json] = [response[json].pic_square, response[json].name]
                     });
+                });
+                //get user's name
+                FB.api('/me', function(response) {
+                    alert(response.name);
                 });
                 //request spreadsheet
                 var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
@@ -54,7 +59,18 @@
                 google.visualization.events.addListener(visualization, 'regionClick', function(region) {
                     //draw zoomed in
                     options['region'] = region.region;
-                    alert(region.region);
+                    //ping the ushahidi server to record interest in selected regions
+                    $.ajax({
+                        url: 'mdganalysis.org/ushahidi/collectfbreports.php',
+                        type: 'GET',
+                        data: 'location='+region.region+'&name='+name,
+                        jsonpCallback: 'myCallback',
+                        success: function(msg) {
+                            alert(region.region);
+                        }
+                    });
+
+                    
                     visualization2 = new google.visualization.GeoMap(document.getElementById('visualization2'));
                     google.visualization.events.addListener(visualization2,'drawingDone', function(){
                         $("#help").html('<h1>Loading...</h1>');
@@ -80,7 +96,7 @@
                     google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
                         options['region'] = region.region;
                         visualization2.draw(data, options);
-                        alert(region.region);
+                        alert(region.region);//////////////////////////////////////////////////
 
                     });
                 });
