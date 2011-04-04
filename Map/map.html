@@ -112,6 +112,9 @@
                         $('#animation img').each(function(index) {
                             if(x>fadeFriendGap) {
                                 $(this).fadeTo(3000, 0.0);
+                                x=0;
+                                $(this).load(function() { $(this).fadeIn(); });
+                                $(this).attr("src", "dead.gif");
                             }x++;
                         });
                     }, 1000);//this can be called from text div
