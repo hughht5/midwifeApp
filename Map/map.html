@@ -54,6 +54,7 @@
                 google.visualization.events.addListener(visualization, 'regionClick', function(region) {
                     //draw zoomed in
                     options['region'] = region.region;
+                    alert(region.region);
                     visualization2 = new google.visualization.GeoMap(document.getElementById('visualization2'));
                     google.visualization.events.addListener(visualization2,'drawingDone', function(){
                         $("#help").html('<h1>Loading...</h1>');
