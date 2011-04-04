@@ -126,7 +126,7 @@
                         $('#animation img').each(function(index) {
                             if(x>30) {
                                 if (y<babyDeaths){
-                                    $(this).fadeTo(3000, 20.0,function(){
+                                    $(this).fadeTo(3000, 0.2,function(){
                                         $(this).attr("src", "dead2.jpg");
                                     });y++;
                                 }
@@ -144,7 +144,7 @@
                         $('#animation img').each(function(index) {
                             if(x>60) {
                                 if (y<mummyDeaths){
-                                    $(this).fadeTo(3000, 20.0,function(){
+                                    $(this).fadeTo(3000, 0.2,function(){
                                         $(this).attr("src", "rip.jpg");
                                     });y++;
                                 }
