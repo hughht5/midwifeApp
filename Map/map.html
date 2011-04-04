@@ -79,13 +79,13 @@
                     google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
                         options['region'] = region.region;
                         visualization2.draw(data, options);
+                        alert(region.region);
 
                     });
                 });
                 //do the animation
                 google.visualization.events.addListener(visualization, 'select', function() {
                     visualization2.setSelection(visualization.getSelection());////////////////////
-                    alert(visualization.getSelection());
                     //query spreadsheet for stats
                     var country_name = data.D[visualization.getSelection()[0].row].c[0].v;
                     var babyDeaths = 0;
