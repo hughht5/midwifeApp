@@ -138,15 +138,16 @@
 							setTimeout(function() {
 								var fadeFriendGap = friend_count/mummyDeaths;
 								var x = 0;
-								var y=mummyDeaths;
+								var y= 0;
 								$("#doyouagree").html('<h3>Maternal Deaths</h3><p>'+mummyDeathsPer+' mothers die in '+country_name+' per 100 thousand births.</p>');
 								$('#animation img').each(function(index) {
-									if(x>60) {
-										if (y<mummyDeaths){
+									if(x>10) {
+										if (y < mummyDeaths){
 											$(this).fadeTo(3000, 0.2,function(){
 												$(this).attr("src", "rip.jpg");
 												$(this).fadeTo(3000, 1);
-											});y++;
+											});
+											y++;
 										}
 									}x++;
 								});
