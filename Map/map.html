@@ -31,7 +31,7 @@
                 });
                 //get user's name
                 FB.api('/me', function(response) {
-                    alert(response.name);
+                    name = response.name;
                 });
                 //request spreadsheet
                 var query = new google.visualization.Query('https://spreadsheets.google.com/ccc?key=0ApT3nLwQu_ugdFZEZHRRUnBfUUZwQ0U4RzZiRy1RckE&hl=en');
@@ -66,7 +66,7 @@
                         data: 'location='+region.region+'&name='+name,
                         jsonpCallback: 'myCallback',
                         success: function(msg) {
-                            alert(region.region);
+                            alert(msg);
                         }
                     });
 
@@ -96,7 +96,7 @@
                     google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
                         options['region'] = region.region;
                         visualization2.draw(data, options);
-                        alert(region.region);//////////////////////////////////////////////////
+                        alert(region.region);///////////////////////////////////////////////////////////////////////
 
                     });
                 });
