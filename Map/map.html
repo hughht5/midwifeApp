@@ -143,12 +143,9 @@
                     //fade the right number of friends to unhappy.png - representing baby deaths
                     setTimeout(function() {
                         var fadeFriendGap = friend_count/mummyDeaths;
-
                         var x = 0;
                         var y=0;
-						
 						$("#doyouagree").html('second stage text');
-
                         $('#animation img').each(function(index) {
                             if(x>60) {
                                 if (y<mummyDeaths){
@@ -160,7 +157,11 @@
                             }x++;
                         });
                     }, 10000);//this can be called from text div
-
+					
+					//fade to 3rd stage like and links
+					setTimeout(function() {
+                        $("#doyouagree").html('links page');
+                    }, 5000);//this can be called from text div
 
 					
                     //$("#animation").css('z-index', '-1');
