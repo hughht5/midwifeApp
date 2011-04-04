@@ -111,53 +111,53 @@
                             babyDeathsPer = msg.feed.entry[0].gsx$neonatalperthousand.$t;
                             mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
                             babyDeaths = (babyDeathsPer / 1000) * friend_count;
+							//place pics inside
+							$("#animation").css('z-index', '3');
+							$("#doyouagree").css('z-index', '4');
+							$.each(friend_ids, function(iterator) {
+								$("#animation").append("<div style='display:inline;width:32px;height:32px;'><div style='float:left;width:30;height:"+(Math.random()*8)+"'></div><img style='padding:0;margin-left:"+(Math.random()*8)+"' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
+								if(iterator == 324) return false;
+							});
+							//fade the right number of friends to dead.png - representing baby deaths
+							setTimeout(function() {                        
+								var x = 0;
+								var y=0;						
+								$("#doyouagree").html('<h3>Neo-natal Deaths</h3><p>'+babyDeathsPer+' babies die in '+country_name+' per one thousand births.</p>');						
+								$('#animation img').each(function(index) {
+									if(x>30) {
+										if (y<babyDeaths){
+											$(this).fadeTo(3000, 0.2,function(){
+												$(this).attr("src", "dead2.jpg");
+												$(this).fadeTo(3000, 1);
+											});y++;
+										}
+									}x++;
+								});
+							}, 3000);//this can be called from text div
+							//fade the right number of friends to unhappy.png - representing baby deaths
+							setTimeout(function() {
+								var fadeFriendGap = friend_count/mummyDeaths;
+								var x = 0;
+								var y=0;
+								$("#doyouagree").html('<h3>Maternal Deaths</h3><p>'+mummyDeathsPer+' mothers die in '+country_name+' per 100 thousand births.</p>');
+								$('#animation img').each(function(index) {
+									if(x>60) {
+										if (y<mummyDeaths){
+											$(this).fadeTo(3000, 0.2,function(){
+												$(this).attr("src", "rip.jpg");
+												$(this).fadeTo(3000, 1);
+											});y++;
+										}
+									}x++;
+								});
+							}, 10000);//this can be called from text div					
+							//fade to 3rd stage like and links
+							setTimeout(function() {
+								$("#doyouagree").html('<h3>What can you do about it?</h3><p><a href="javascript:fb_publish();return false;">Post to wall</a></p>');
+							}, 17000);//this can be called from text div
+							$("#doyouagree").html(''); 							
                         }
-                    });
-                    //place pics inside
-                    $("#animation").css('z-index', '3');
-                    $("#doyouagree").css('z-index', '4');
-                    $.each(friend_ids, function(iterator) {
-                        $("#animation").append("<div style='display:inline;width:32px;height:32px;'><div style='float:left;width:30;height:"+(Math.random()*8)+"'></div><img style='padding:0;margin-left:"+(Math.random()*8)+"' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
-                        if(iterator == 324) return false;
-                    });
-                    //fade the right number of friends to dead.png - representing baby deaths
-                    setTimeout(function() {                        
-                        var x = 0;
-                        var y=0;						
-						$("#doyouagree").html('<h3>Neo-natal Deaths</h3><p>'+babyDeathsPer+' babies die in '+country_name+' per one thousand births.</p>');						
-                        $('#animation img').each(function(index) {
-                            if(x>30) {
-                                if (y<babyDeaths){
-                                    $(this).fadeTo(3000, 0.2,function(){
-                                        $(this).attr("src", "dead2.jpg");
-                                        $(this).fadeTo(3000, 1);
-                                    });y++;
-                                }
-                            }x++;
-                        });
-                    }, 3000);//this can be called from text div
-                    //fade the right number of friends to unhappy.png - representing baby deaths
-                    setTimeout(function() {
-                        var fadeFriendGap = friend_count/mummyDeaths;
-                        var x = 0;
-                        var y=0;
-						$("#doyouagree").html('<h3>Maternal Deaths</h3><p>'+mummyDeathsPer+' mothers die in '+country_name+' per 100 thousand births.</p>');
-                        $('#animation img').each(function(index) {
-                            if(x>60) {
-                                if (y<mummyDeaths){
-                                    $(this).fadeTo(3000, 0.2,function(){
-                                        $(this).attr("src", "rip.jpg");
-                                        $(this).fadeTo(3000, 1);
-                                    });y++;
-                                }
-                            }x++;
-                        });
-                    }, 10000);//this can be called from text div					
-					//fade to 3rd stage like and links
-					setTimeout(function() {
-                        $("#doyouagree").html('<h3>What can you do about it?</h3><p><a href="javascript:fb_publish();return false;">Post to wall</a></p>');
-                    }, 17000);//this can be called from text div
-					$("#doyouagree").html('');                 
+                    });                                    
                 });
                 function pingUshahidi(region){
                     $.ajax({
