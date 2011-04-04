@@ -12,6 +12,8 @@
 			var babyDeaths = 0;
             var mummyDeaths = 0;
 			var country_name = '';
+			var mummyDeathsPer = 0;
+			var babyDeathsPer = 0;
             function drawVisualization() {
                 //auth with facebook
                 FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
@@ -105,8 +107,8 @@
                         data: 'alt=json-in-script&sq=country=='+country_name,
                         jsonpCallback: 'myCallback',
                         success: function(msg) {
-                            var mummyDeathsPer = msg.feed.entry[0].gsx$maternaldeathsper100000births.$t;
-                            var babyDeathsPer = msg.feed.entry[0].gsx$neonatalperthousand.$t;
+                            mummyDeathsPer = msg.feed.entry[0].gsx$maternaldeathsper100000births.$t;
+                            babyDeathsPer = msg.feed.entry[0].gsx$neonatalperthousand.$t;
                             mummyDeaths = (mummyDeathsPer / 100000) * friend_count;
                             babyDeaths = (babyDeathsPer / 1000) * friend_count;
                         }
