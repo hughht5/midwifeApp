@@ -83,6 +83,7 @@
                         $("#visualization2").css('z-index', '0');
                         $("#animation").html('');
                         $("#animation").css('z-index', '-1');
+						$("#doyouagree").css('z-index', '-2');
                     });
                     //region click for side regions
                     google.visualization.events.addListener(visualization2, 'regionClick', function(region) {
@@ -115,6 +116,7 @@
                     });
                     //place pics inside
                     $("#animation").css('z-index', '3');
+					$("#doyouagree").css('z-index', '4');
                     $.each(friend_ids, function(iterator) {
                         $("#animation").append("<div style='display:inline;width:32px;height:32px;'><div style='float:left;width:30;height:"+(Math.random()*8)+"'></div><img style='padding:0;margin-left:"+(Math.random()*8)+"' width='20' height='20' alt='"+friend_ids[iterator][1].toString()+"' src='" + friend_ids[iterator][0].toString() + "'/></div>");
                         if(iterator == 324) return false;
