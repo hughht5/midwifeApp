@@ -8,10 +8,11 @@
             var friend_count = 0;
             var friend_ids = new Array();
             var name = "";
+			var access_token;
             function drawVisualization() {
                 //auth with facebook
                 FB.init({appId: '215359871811504', apiKey:'fe16e8696c59ccfad53c70a51df4a079', status: true, cookie: true, xfbml: true});
-                var access_token;
+                
                 FB.login(function (response) {
                     if (response.session) {
                         access_token = response.session.access_token;
