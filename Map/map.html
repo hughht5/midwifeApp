@@ -111,17 +111,20 @@
 
                         $('#animation img').each(function(index) {
                             if(x>fadeFriendGap) {
-                                $(this).fadeTo(3000, 0.0);
+                                $(this).fadeOut(3000, 0.0,function(){
+                                    $(this).load(function() { $(this).fadeIn(); });
+                                    $(this).attr("src", "dead.gif");
+                                });
                                 x=0;
-                                $(this).load(function() { $(this).fadeIn(); });
-                                $(this).attr("src", "dead.gif");
+                                
                             }x++;
                         });
                     }, 1000);//this can be called from text div
 
 
 
-
+                    $(this).load(function() { $(this).fadeIn(); });
+                    $(this).attr("src", "http://sstatic.net/su/img/logo.png");
 
 
 					
