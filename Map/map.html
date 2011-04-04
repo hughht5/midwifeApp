@@ -189,21 +189,20 @@
                 }				
             }
 			function fb_publish() {
-					alert("exxecuted");
 					FB.ui(
 					{
 						method: 'stream.publish',
-						message: 'Message here.',
+						message: 'Has seen the state of the world',
 						attachment: {
-							name: 'Name here',
+							name: name,
 							caption: 'Caption here.',
 							description: (
 								'description here'
 							),
-							href: 'url here'
+							href: 'http://apps.facebook.com/stateoftheworld'
 						},
 						action_links: [
-							{ text: 'Code', href: 'action url here' }
+							{ text: 'See more here', href: 'mdganalysis.org/ushahidi' }
 						],
 						user_prompt_message: 'Personal message here'
 					},
