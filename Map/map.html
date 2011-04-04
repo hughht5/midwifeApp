@@ -143,6 +143,8 @@
 
                         var x = 0;
                         var y=0;
+						
+						//$().html();
 
                         $('#animation img').each(function(index) {
                             if(x>60) {
@@ -174,8 +176,8 @@
                         data: 'location='+region+'&name='+name,
                         jsonpCallback: 'myCallback',
                         success: function(msg) {
-                            alert("lol");
-                            alert(msg);
+//                            alert("lol");
+//                            alert(msg);
                         }
                     });
                 }
