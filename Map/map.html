@@ -193,6 +193,14 @@
 					{
 						method: 'stream.publish',
 						message: 'Has seen the state of the world',
+						attachment: {
+							name: name,
+							caption: 'State of the world',
+							description: (
+								name+' Has seen the state of the world.'
+							),
+							href: 'http://apps.facebook.com/stateoftheworld'
+						},
 						action_links: [
 							{ text: 'See more here', href: 'mdganalysis.org/ushahidi' }
 						],
